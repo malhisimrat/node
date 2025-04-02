@@ -99,8 +99,8 @@
   },
   "devDependencies": {},
   "scripts": {
-    
-    "build": "npm run build",
+    "build": "node --max-old-space-size=4096 node_modules/.bin/next build",
+
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -113,6 +113,12 @@
   "bugs": {
     "url": "https://github.com/malhisimrat/node/issues"
   },
+  "engines": {
+  "node": "18.x",
+  "npm": "9.x"
+  },
+
   "homepage": "https://github.com/malhisimrat/node#readme",
   "description": ""
+  
 }
