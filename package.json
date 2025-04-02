@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "build": "CI= npm build",
+    
     "test": "echo \"Error: no test specified\" "
   },
   "repository": {
