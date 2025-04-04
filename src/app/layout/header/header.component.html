@@ -1,0 +1,33 @@
+<section class="header" id="header">
+    <div class="navbar-option">
+        <div class="container">
+            <nav class="navbar navbar-default">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>                        
+                    </button>
+                    <a class="navbar-brand" routerLink="/layout/home"><img src="../../../assets/assets/images/logo.png" alt="" /></a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-left">
+                        <li><a routerLink="/layout/home">Home</a></li>
+                        <li><a routerLink="/layout/user-view-bicycle" *ngIf="userType!=2">View Bicycle</a></li>
+                        <li><a routerLink="/layout/view-booking" *ngIf="userType==3">View Bookings</a></li>
+                        <li><a routerLink="/layout/renter-view-request" *ngIf="userType==2">Requests</a></li>
+                        <li><a routerLink="/layout/renter-register" *ngIf="!istoken">Renter Register</a></li>
+                        <li><a routerLink="/layout/renter-view-bicycle" *ngIf="userType==2">Manage Bicycle</a></li>
+                        <li><a routerLink="/layout/renter-login" *ngIf="!istoken">Renter Login</a></li>
+                        <li><a routerLink="/layout/user-register" *ngIf="!istoken">User Register</a></li>
+                        <li><a routerLink="/layout/user-login" *ngIf="!istoken">User Login</a></li>
+                        <li><a routerLink="/layout/user-profile" *ngIf="istoken && userType==3">Profile</a></li>
+                        <li><a routerLink="/layout/renter-profile" *ngIf="istoken && userType==2">Profile</a></li>
+                        <li><a routerLink="/layout/contact">Contact</a></li>
+                        <li><a (click)="logout()" *ngIf="istoken">Logout</a></li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
+    </div>
+</section>

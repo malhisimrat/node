@@ -1,0 +1,40 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<section class="contact-form">
+    <div class="container">
+        <div class="contact-heading">
+            <h1>Contact Us</h1>
+        </div>
+        <form id="contact" [formGroup]="addForm">
+            <h3>Leave your query here</h3>
+            <fieldset>
+                <label for="name">Name*</label>
+                <input placeholder="Your name" formControlName="name" type="text" required autofocus>
+                <span *ngIf="addForm.controls['name'].invalid && addForm.controls['name'].touched" class="text-danger">Required</span>
+            </fieldset>
+            <fieldset>
+                <label for="email">Email*</label>
+                <input placeholder="Your Email Address" formControlName="email" type="email" required>
+                <span *ngIf="addForm.controls['email'].invalid && addForm.controls['email'].touched" class="text-danger">Required</span>
+                
+            </fieldset>
+            <fieldset>
+                <label for="title">Title*</label>
+                <input placeholder="Title" type="text"formControlName="subject" required>
+                <span *ngIf="addForm.controls['subject'].invalid && addForm.controls['subject'].touched" class="text-danger">Required</span>
+                
+            </fieldset>
+            <fieldset>
+                <label for="message">Message*</label>
+                <textarea placeholder="Type your message here...." formControlName="message" required></textarea>
+                <span *ngIf="addForm.controls['message'].invalid && addForm.controls['message'].touched" class="text-danger">Required</span>
+
+            </fieldset>
+            <fieldset>
+                <button [disabled]="addForm.invalid" type="button" class="btn btn-warning" (click)="submit()" >Submit</button>
+               
+            </fieldset>
+        </form>
+
+    </div>
+
+</section>

@@ -1,0 +1,25 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<section class="contact-form">
+    <div class="container">
+        <div class="contact-heading">
+            <h1>Renter Login</h1>
+        </div>
+        <form id="contact" [formGroup]="addForm">
+            <fieldset>
+                <label for="email">Email*</label>
+                <input placeholder="Your Email Address" formControlName="email" type="email" required>
+                <span *ngIf="addForm.controls['email'].invalid && addForm.controls['email'].touched" class="text-danger">Required</span>
+            </fieldset>
+            <fieldset>
+                <label for="password">Password*</label>
+                <input placeholder="Your Password" formControlName="password" type="text" required autofocus>
+                <span *ngIf="addForm.controls['password'].invalid && addForm.controls['password'].touched" class="text-danger">Required</span>
+            </fieldset>
+            <fieldset>
+                <button [disabled]="addForm.invalid" type="button" class="btn btn-warning" (click)="submit()" >Login</button>
+            </fieldset>
+        </form>
+
+    </div>
+
+</section>

@@ -1,0 +1,37 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<section class="blog">
+    <div class="container">
+        <div class="banner-heading">
+            <a routerLink="/admin/admin-add-bicycle" class="btn btn-danger" style="float:right;" *ngIf="usertype==1">Add Bicycle</a>
+            <a routerLink="/layout/renter-add-bicycle" class="btn btn-danger" style="float:right;" *ngIf="usertype==2">Add Bicycle</a>
+            <h2>
+                Manage Bicycles
+            </h2>
+            <div class="col-md-12">
+                <div class="col-md-4 margin-top"  *ngFor="let bike of data">
+                    <div class="content-div text-center">
+                        <div class="blog-inner">
+                            <div class="blog-img">
+                                <img class="img-responsive" [src]="getimagepath(bike.image)" alt="" />
+                                <div class="img-border"></div>
+                            </div>
+                            <div class="blog-text">
+                                <p class="blog-heading">
+                                    {{ bike.bikeType }} <br>
+                                    {{ bike.pricePerHour | currency:'INR' }}
+                                </p>
+                                <p class="blog-textual-cont">
+                                    {{bike.description}}
+                                </p>
+                                <!-- <a class="read-more" >Read More</a> -->
+                                <a [routerLink]="['/admin/admin-edit-bicycle',bike._id]" *ngIf="usertype==1"><i class="fa fa-edit text-success fa-2x"></i></a>
+                                <a [routerLink]="['/layout/renter-edit-bicycle',bike._id]" *ngIf="usertype==2"><i class="fa fa-edit text-success fa-2x"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,9 @@
+.row{
+    margin-bottom: 100px;
+}
+
+.card{
+    background-color: rgba(255,255,255,1);
+    /* border-radius: 999px; */
+    padding: 50px;
+}

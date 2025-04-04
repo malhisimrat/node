@@ -1,0 +1,53 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<section class="blog_wrapper">
+    <div class="container">
+        <div class="heading-top">
+            <h1>View Request</h1>
+        </div>
+        <div class="container table-responsive"> 
+            <table class="table table-bordered table-hover">
+                <thead class="thead-dark">
+                <tr>
+                    <th>#</th>
+                    <th>Bike Type</th>
+                    <th>User Info</th>
+                    <th>Renter Info</th>
+                    <th>Other info</th>
+                    <th>Pickup info</th>
+                    <th>Request Status</th>
+                    <th>Actions</th>
+                </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let req of data;let i=index">
+                        <td>{{ i+1 }}</td>
+                        <td> {{req.bicycleId.bikeType}} </td>
+                        <td>  {{ req.hirerId.name }} <br> {{ req.hirerId.email }} <br> {{ req.hirerId.contact }} </td>
+                        <td> {{ req.renterId.name }} <br> {{ req.renterId.contact }} </td>
+                        <td> <p><strong> Start at </strong>: {{ changedatetime(req.startDateTime) }}</p>
+                            <p><strong> No. of Hours </strong>: {{ req.numOfHours }} Hours</p> 
+                            <p><strong> Price per hour </strong>: {{ req.pricePerHour | currency : 'INR' }} </p> 
+                            <p><strong> Total Price </strong>: {{ req.amountTotal | currency : 'INR' }} </p>  
+                        </td>
+                       
+                        <td>
+                            {{ req.pickUpPoint }} {{ req.pickUpDescription }}
+                        </td>
+                        <td>
+                            <span class="text-info" *ngIf="req.requestStatus==1">Pending</span>    
+                            <span class="text-warning" *ngIf="req.requestStatus==2">Accept</span>    
+                            <span class="text-success" *ngIf="req.requestStatus==3">Complete</span>    
+                            <span class="text-danger" *ngIf="req.requestStatus==4">Cancelled</span>    
+                        </td>
+                        <td>
+                            <i class="fa fa-check fa-2x text-success" *ngIf="req.requestStatus==2" (click)="changeStatus(req._id,3,null)" title="Completed"></i>
+                            <i class="fa fa-check fa-2x text-success" *ngIf="req.requestStatus==1" (click)="pickup(req._id,2)" title="Accepted"></i>
+                            <i class="fa fa-times fa-2x text-danger" *ngIf="req.requestStatus==1" (click)="changeStatus(req._id,4,null)" title="Declined"></i>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</section>

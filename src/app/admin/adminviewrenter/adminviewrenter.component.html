@@ -1,0 +1,38 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+<section class="blog_wrapper">
+
+    <div class="container">
+        <div class="heading-top">
+            <h1>View Shopkeeprs</h1>
+        </div>
+        <div class="row">
+            <div class="col-md-4 col-sm-4" *ngFor="let renter of data">
+                <div class="sidebar">
+                    <div class="widget">
+                        <ul>
+                            <li><a><strong>Name </strong> {{ renter.name }} </a></li>
+                            <li><a><strong>Email </strong> {{ renter.email }} </a></li>
+                            <li><a><strong>Contact </strong> {{ renter.contact }} </a></li>
+                            <li><a [href]="getimagepath(renter.idProof_image)" target="_blank"><strong>View Proof </strong>  </a></li>
+                            <li><a><strong>User Status </strong>
+                                <span *ngIf="renter.userStatus==1" class="text-info">Pending</span>
+                                <span *ngIf="renter.userStatus==2" class="text-success">Accepted</span>
+                                <span *ngIf="renter.userStatus==3" class="text-danger">Rejected</span>
+                            </a>
+                            </li>
+                            <li *ngIf="renter.userStatus==1">
+                                <i class="fa fa-check text-success fa-2x" (click)="updatestatus(renter._id,'2')"></i> &nbsp;
+                                <i class="fa fa-times text-danger fa-2x" (click)="updatestatus(renter._id,'3')"></i>
+                            </li>
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+            <!--Sidebar End Here-->
+
+        </div>
+    </div>
+    <div class="clearfix"></div>
+</section>

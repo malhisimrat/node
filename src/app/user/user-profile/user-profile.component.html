@@ -1,0 +1,38 @@
+<ngx-spinner type="ball-scale-multiple"></ngx-spinner>
+
+<section class="blog">
+    <div class="container">
+        <div class="banner-heading">
+            <h2>
+               User Profile
+            </h2>
+            <div class="col-md-12">
+                <div class="col-md-3"></div>
+                <div class="col-md-6 margin-top">
+                    <div class="content-div text-center">
+                        <div class="blog-inner">
+                            <div class="blog-img">
+                                <img class="img-responsive" [src]="getimagepath(data.idProof_image)" alt="" />
+                                <div class="img-border"></div>
+                            </div>
+                            <div class="blog-text">
+                                <p class="blog-heading">
+                                    {{ data.name }} 
+                                </p>
+                                <p class="blog-textual-cont">
+                                    {{data.email}}
+                                </p>
+                                
+                                <p class="blog-textual-cont">
+                                    {{data.contact}}
+                                </p>
+                                <a class="btn btn-warning" [routerLink]="['/layout/update-user-profile',data._id]">Update Profile</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </div>
+    </div>
+</section>
