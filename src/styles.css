@@ -1,1 +1,16 @@
 /* You can add global styles to this file, and also import other style files */
+.theme-color{
+    color: #1bbd36;
+}
+
+.theme-background-color{
+    background-color: #1bbd36;
+}
+
+button:disabled{
+    cursor: not-allowed;
+}
+
+.h-100px{
+    height: 100px !important;
+}

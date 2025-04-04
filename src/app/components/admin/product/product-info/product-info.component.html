@@ -1,0 +1,92 @@
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+  
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Product Details</h2>
+          <ol>
+            <li><a href="javascript:void(0)" [routerLink]="['/home']">Home</a></li>
+            <li>View Product</li>
+          </ol>
+        </div>
+  
+      </div>
+    </section><!-- End Breadcrumbs -->
+  
+    <!-- ======= Contact Section ======= -->
+  
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row">
+
+          <div class="col-lg-6">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+      
+                <div class="swiper-slide">
+                  <!-- <img src="assets/img/blog/blog-2.jpg" alt=""> -->
+                  <img [src]="getSanitizerUrl(productData.image)" height="400" >
+                </div>
+      
+      
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+            <div class="row mt-3">
+      
+              <div class="col-lg-4 small-img">
+                <img [src]="getSanitizerUrl(productData.image)" width="150px" height="150px" alt="" *ngIf="productData.image[0]">
+              </div>
+      
+              <div class="col-lg-4 small-img">
+                <img [src]="getSanitizerUrl(productData.image)" width="150px" height="150px" alt="" *ngIf="productData.image[1]">
+              </div>
+      
+              <div class="col-lg-4 small-img">
+                <img [src]="getSanitizerUrl(productData.image)" width="150px" height="150px" alt="" *ngIf="productData.image[2]">
+              </div>
+      
+            </div>
+          </div>
+      
+          <div class="col-lg-6">
+            <div class="portfolio-info">
+              <h3 class="text-new">{{productData.name}}</h3>
+              <i class="fa fa-heart" style="font-size:24px"></i>
+      
+              <div class="d-flex justify-content-between">
+                <div class="col-md-6">
+                  <ul>
+                    <!-- <li><strong>Product Name</strong>: {{productData.product_name}}</li> -->
+                    <li ><strong>Category</strong>: {{productData?.categoryId?.name}}</li>
+                    <li><strong>Product Price</strong>: {{productData.price | currency: 'INR'}}</li>
+        
+                    
+                  </ul>
+                </div>
+              
+                
+              </div>
+             
+              <form>
+                <input type="text" #address="ngModel" name="address" [(ngModel)]="formModel.address" placeholder="Address" required><br>
+                <button class="btn btn-success mt-4" (click)="submit()">Place Order</button>
+      
+              </form>
+      
+            </div>
+            <div>
+            </div>
+          </div>
+      
+        </div>
+      </div>
+        
+    </section>
+</main>
+
+
+
+

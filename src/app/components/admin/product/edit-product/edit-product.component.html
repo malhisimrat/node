@@ -1,0 +1,87 @@
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+  
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Product</h2>
+          <ol>
+            <li><a href="javascript:void(0)" [routerLink]="['/home']">Home</a></li>
+            <li>Edit Product</li>
+          </ol>
+        </div>
+  
+      </div>
+    </section><!-- End Breadcrumbs -->
+  
+    <!-- ======= Contact Section ======= -->
+  
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <h1 class="text-center theme-color">Edit Product</h1>
+          </div>
+          <div class="col-lg-10">
+            <form [formGroup]="formData" (submit)="submit()" method="post" role="form" class="php-email-form" >
+              <div class="row">
+                <div class="col-md-12 form-group">
+                    <label class="theme-color">Category:</label>
+                    <select formControlName="categoryId" class="form-control" required (change)="getSubCatAllList($event)">
+                        <option value="" disabled>Select Category</option>
+                        <option *ngFor="let data of dataList" [value]="data._id">{{data.name}}</option>
+                    </select>
+                    <div *ngIf="formData.get('categoryId')?.invalid && (formData.get('categoryId')?.dirty || formData.get('categoryId')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <label class="theme-color">Subcategory:</label>
+                    <select formControlName="subcategoryId" class="form-control" required>
+                        <option value="">Select Subcategory</option>
+                        <option *ngFor="let data of subCatDataList" [value]="data._id">{{data.name}}</option>
+                    </select>
+                    <div *ngIf="formData.get('subcategoryId')?.invalid && (formData.get('subcategoryId')?.dirty || formData.get('subcategoryId')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                <div class="col-md-12 form-group">
+                    <label class="theme-color">Name:</label>
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Product name" required>
+                    <div *ngIf="formData.get('name')?.invalid && (formData.get('name')?.dirty || formData.get('name')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <label class="theme-color">Price:</label>
+                    <input type="text" formControlName="price" class="form-control" id="price" placeholder="Product Price" required>
+                    <div *ngIf="formData.get('price')?.invalid && (formData.get('price')?.dirty || formData.get('price')?.touched)" class="alert alert-danger mt-1">
+                      Required. Only Number Allowed.
+                    </div>
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <label class="theme-color">Status:</label>
+                    <select formControlName="status" class="form-control" required>
+                        <option [value]="true">Active</option>
+                        <option [value]="false">Disable</option>
+                    </select>
+                    <div *ngIf="formData.get('status')?.invalid && (formData.get('status')?.dirty || formData.get('status')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                <div class="col-md-12 form-group">
+                    <label class="theme-color">Image:</label>
+                  <input type="file" class="form-control" (change)="addPic($event)"> 
+                </div>
+              </div>
+              <div class="text-center"><button [disabled]="formData.invalid" type="submit">Submit</button></div>
+            </form>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Contact Section -->
+  
+  </main><!-- End #main -->

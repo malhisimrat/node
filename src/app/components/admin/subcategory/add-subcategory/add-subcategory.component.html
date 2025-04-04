@@ -1,0 +1,57 @@
+<main id="main">
+
+    <!-- ======= Breadcrumbs ======= -->
+    <section id="breadcrumbs" class="breadcrumbs">
+      <div class="container">
+  
+        <div class="d-flex justify-content-between align-items-center">
+          <h2>Subcategory</h2>
+          <ol>
+            <li><a href="javascript:void(0)" [routerLink]="['/home']">Home</a></li>
+            <li>Add Subcategory</li>
+          </ol>
+        </div>
+  
+      </div>
+    </section><!-- End Breadcrumbs -->
+  
+    <!-- ======= Contact Section ======= -->
+  
+    <section id="contact" class="contact">
+      <div class="container">
+        <div class="row mt-5 justify-content-center" data-aos="fade-up">
+          <div class="col-lg-10">
+            <h1 class="text-center theme-color">Add Subcategory</h1>
+          </div>
+          <div class="col-lg-10">
+            <form [formGroup]="formData" (submit)="submit()" method="post" role="form" class="php-email-form" >
+              <div class="row">
+                <div class="col-md-12 form-group">
+                    <select formControlName="categoryId" class="form-control" required>
+                        <option value="">Select Category</option>
+                        <option *ngFor="let data of dataList" [value]="data._id">{{data.name}}</option>
+                    </select>
+                    <div *ngIf="formData.get('categoryId')?.invalid && (formData.get('categoryId')?.dirty || formData.get('categoryId')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                <div class="col-md-12 form-group">
+                    <input type="text" formControlName="name" class="form-control" id="name" placeholder="Subcategory name" required>
+                    <div *ngIf="formData.get('name')?.invalid && (formData.get('name')?.dirty || formData.get('name')?.touched)" class="alert alert-danger mt-1">
+                      Required
+                    </div>
+                  </div>
+                <div class="col-md-12 form-group">
+                  <input type="file" class="form-control" (change)="addPic($event)" required> 
+                </div>
+              </div>
+              <div class="text-center"><button [disabled]="formData.invalid" type="submit">Submit</button></div>
+            </form>
+          </div>
+  
+        </div>
+  
+      </div>
+    </section><!-- End Contact Section -->
+  
+  </main><!-- End #main -->

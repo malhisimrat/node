@@ -6,7 +6,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "bicycle": {
+    "front-end": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
@@ -20,7 +20,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/bicycle",
+            "outputPath": "dist/front-end",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -30,27 +30,31 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.css",
               "src/styles.css",
-              "src/assets/assets/css/bootstrap.min.css",
-              "src/assets/assets/css/style.css",
-              "src/assets/assets/css/contact.css",
-              "src/assets/assets/css/font-awesome.min.css",
-              "src/assets/assets/css/owl-carousel/owl.carousel.min.css",
-              "src/assets/assets/css/owl-carousel/owl.theme.default.min.css",
-              "src/assets/assets/css/jquery.fancybox.min.css",
-              "src/assets/assets/css/YouTubePopUp.css",
+              "src/assets/vendor/animate.css/animate.min.css",
+              "src/assets/vendor/aos/aos.css",
+              "src/assets/vendor/bootstrap/css/bootstrap.min.css",
+              "src/assets/vendor/bootstrap-icons/bootstrap-icons.css",
+              "src/assets/vendor/boxicons/css/boxicons.min.css",
+              "src/assets/vendor/glightbox/css/glightbox.min.css",
+              "src/assets/vendor/remixicon/remixicon.css",
+              "src/assets/vendor/swiper/swiper-bundle.min.css",
+              "node_modules/ngx-spinner/animations/ball-scale-multiple.css",
               "node_modules/ngx-toastr/toastr.css",
-              "node_modules/ngx-spinner/animations/ball-scale-multiple.css" ,
-              "src/assets/assets/css/blog-style.css"
+              "src/assets/css/style.css"
             ],
             "scripts": [
-              "src/assets/assets/js/jquery.min.js",
-              "src/assets/assets/js/bootstrap.min.js",
-              "src/assets/assets/js/owl-carousel/owl.carousel.min.js",
-              "src/assets/assets/js/owl-carousel/highlight.js",
-              "src/assets/assets/js/owl-carousel/app.js",
-              "src/assets/assets/js/jquery.fancybox.min.js",
-              "src/assets/assets/js/YouTubePopUp.jquery.js"
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "src/assets/vendor/aos/aos.js",
+              "src/assets/vendor/bootstrap/js/bootstrap.bundle.min.js",
+              "src/assets/vendor/glightbox/js/glightbox.min.js",
+              "src/assets/vendor/isotope-layout/isotope.pkgd.min.js",
+              "src/assets/vendor/swiper/swiper-bundle.min.js",
+              "src/assets/vendor/waypoints/noframework.waypoints.js",
+              "src/assets/vendor/php-email-form/validate.js",
+              "src/assets/js/main.js"
             ]
           },
           "configurations": {
@@ -58,8 +62,8 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "1mb",
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -90,10 +94,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "bicycle:build:production"
+              "browserTarget": "front-end:build:production"
             },
             "development": {
-              "browserTarget": "bicycle:build:development"
+              "browserTarget": "front-end:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -101,7 +105,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "bicycle:build"
+            "browserTarget": "front-end:build"
           }
         },
         "test": {
@@ -124,5 +128,5 @@
       }
     }
   },
-  "defaultProject": "bicycle"
+  "defaultProject": "front-end"
 }
